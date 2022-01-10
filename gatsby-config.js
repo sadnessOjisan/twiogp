@@ -1,9 +1,11 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://twiogp.ojisan.dev",
     title: "twiogp",
+    author: `@sadnessOjisan`,
   },
   plugins: [
+    "gatsby-plugin-typegen",
     "gatsby-plugin-emotion",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
