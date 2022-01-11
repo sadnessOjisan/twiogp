@@ -1,32 +1,54 @@
-import * as React from "react";
-import { graphql, Link, PageProps } from "gatsby";
+import fs from "fs";
+import Link from "next/link";
+import YAML from "yaml";
+import Image from "next/image";
+import path from "path";
+import { GetServerSideProps } from "next";
+import { VFC } from "react";
+import { type ImageYaml, imageYamlSchema } from "../schema/images";
 
-const IndexPage: React.VFC<PageProps<GatsbyTypes.AllConfigQuery>> = ({
-  data,
-}) => {
+type Props =
+  | {
+      _tag: "s";
+      parsed: ImageYaml;
+    }
+  | {
+      _tag: "f";
+      message: string;
+    };
+
+const Index: VFC<Props> = (props) => {
   return (
-    <main>
-      {data.allConfigYaml.edges.map((edge) => (
-        <Link key={edge.node.id} to={`/${edge.node.path}`}>
-          {edge.node.name}
-        </Link>
-      ))}
-    </main>
+    <p>
+      {props._tag === "s" ? (
+        props.parsed.map((p) => (
+          <Link href={`images/${p.urlPath}`} key={p.imageName}>
+            <div>
+              <Image src={`/images/${p.imageName}`} width={400} height={300} />
+            </div>
+          </Link>
+        ))
+      ) : (
+        <p>{props.message}</p>
+      )}
+    </p>
   );
 };
 
-export default IndexPage;
+export default Index;
 
-export const query = graphql`
-  query AllConfig {
-    allConfigYaml {
-      edges {
-        node {
-          id
-          path
-          name
-        }
-      }
-    }
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const file = fs.readFileSync(
+    path.join(process.cwd(), "public/config.yaml"),
+    "utf8"
+  );
+  const parsed = YAML.parse(file);
+  const validatedResult = imageYamlSchema.safeParse(parsed);
+  if (validatedResult.success) {
+    return {
+      props: { _tag: "s", parsed },
+    };
+  } else {
+    return { props: { _tag: "f", message: "データの取得に失敗しました。" } };
   }
-`;
+};
