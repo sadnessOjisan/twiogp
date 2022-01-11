@@ -29,8 +29,9 @@ const Index: VFC<Props> = (props) => {
               <div className={styles.link}>
                 <Image
                   src={`/images/${p.imageName}`}
-                  width={400}
-                  height={300}
+                  width={320}
+                  height={180}
+                  quality={100}
                 />
               </div>
             </Link>

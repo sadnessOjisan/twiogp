@@ -1,9 +1,18 @@
 .cards {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
   > * {
-    margin: 4px;
+    margin: 12px 0px;
+  }
+  @media screen and (min-width: 480px) {
+    display: grid;
+    grid-template-rows: repeat(3, 1r);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    > * {
+      margin: 0px;
+    }
   }
 }
 
