@@ -63,16 +63,16 @@ const Meta: VFC<{ data: Success }> = ({ data }) => {
       />
       <meta
         property="og:description"
-        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で自由に追加・編集が可能です。`}
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:description"
-        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で自由に追加・編集が可能です。`}
       />
       <meta
         name="twitter:image"
-        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で自由に追加・編集が可能です。`}
       />
     </Head>
   );
