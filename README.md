@@ -2,6 +2,8 @@
 
 つい、OGP で語ってしまう
 
+URL: https://twiogp.ojisan.dev
+
 ## 📖 How to use
 
 画像ページを Twitter などに貼ると OGP として展開されます。
@@ -42,3 +44,15 @@ yaml の構造は、
 - アダルト
 
 禁止事項に該当するものに対する PR は reject します。
+
+## 🗣 想定される質問
+
+### なぜ OGP を動的生成しなかったの？
+
+デザインごとユーザーが入稿できるようにしたかったためです。
+入稿がめんどくさい、動的生成したいって場合は https://blog.ojisan.io/jsx-preview/ をお使いください。
+
+### なぜ NextJS？
+
+画像の生成で SSR させているのでそれがコスト増であり、Gatsby の方が分がありそうです。
+しかし、yaml がら chaildImageSharp を生成できなかったため、苦肉の策として Next + Vercel + next/image という構成にしています。
