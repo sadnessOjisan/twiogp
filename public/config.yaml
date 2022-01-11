@@ -4,3 +4,30 @@
 - name: 個人の感想です
   urlPath: kojinnokannsodesu
   imageName: kojinnokansodesu.png
+- name: RT禁止
+  urlPath: forbid-rt
+  imageName: rtkinsi.png
+- name: ありがとう
+  urlPath: arigato
+  imageName: arigato.png
+- name: 行間の読み取り禁止
+  urlPath: gyokan-yomitori-kinsi
+  imageName: gyokannoyomitorikinsi.png
+- name: 返信不要
+  urlPath: henshinhuyo
+  imageName: hensinhuyo.png
+- name: 自信ないけど
+  urlPath: jishin-naikedo
+  imageName: jisinnaikedo.png
+- name: 冗談です
+  urlPath: jodan-desu
+  imageName: jodandesu.png
+- name: めんどくさい絡み禁止
+  urlPath: mendokusai-karami-kinsi
+  imageName: mendokusaikaramikinsi.png
+- name: 素人質問です
+  urlPath: sirouto-shitsumon-desu
+  imageName: siroutositumondesu.png
+- name: ワロス
+  urlPath: warosu
+  imageName: warosu.png
