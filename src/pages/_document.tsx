@@ -15,14 +15,18 @@ export default class MyDocument extends Document {
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
                 strategy="afterInteractive"
               />
-              <Script id="ga" defer strategy="afterInteractive">
-                {`
+              <Script
+                defer
+                dangerouslySetInnerHTML={{
+                  __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
+              gtag('js', new Date());    
               gtag('config', '${GA_TRACKING_ID}');
-          `}
-              </Script>
+            `,
+                }}
+                strategy="afterInteractive"
+              />
             </>
           )}
         </Head>
