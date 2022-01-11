@@ -46,8 +46,9 @@ const Iid: VFC<Props> = (props) => {
 };
 
 const Meta: VFC<{ data: Success }> = ({ data }) => {
-  const origin =
-    process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_HOSTING_HOST;
+  const origin = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_HOSTING_HOST;
   return (
     <Head>
       <title>${data.detail.imageName}</title>
