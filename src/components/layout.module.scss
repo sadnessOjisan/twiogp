@@ -1,0 +1,14 @@
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-size: 32px;
+  }
+}
