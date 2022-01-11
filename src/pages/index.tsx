@@ -1,10 +1,11 @@
 import fs from "fs";
-import Link from "next/link";
-import YAML from "yaml";
-import Image from "next/image";
-import path from "path";
 import { GetServerSideProps } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import path from "path";
 import { VFC } from "react";
+import YAML from "yaml";
+
 import { type ImageYaml, imageYamlSchema } from "../schema/images";
 
 type Props =

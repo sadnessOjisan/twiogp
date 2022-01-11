@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 
-import __ from "../styles/normalaize.css";
+import __ from "../styles/normalize.css";
 import _ from "../styles/reset.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
