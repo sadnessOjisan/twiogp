@@ -2,6 +2,8 @@ export const GA_TRACKING_ID = "G-1MCMZCSVVM";
 
 export const pageview = (url: string): void => {
   if (!GA_TRACKING_ID) return;
+  //   eslint-disable-next-line
+  //   @ts-ignore
   if (window && window.gtag) {
     //   eslint-disable-next-line
     //   @ts-ignore
