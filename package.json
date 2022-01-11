@@ -21,5 +21,8 @@
     "react-helmet": "^6.1.0",
     "yaml": "^1.10.2",
     "zod": "^3.11.6"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4"
   }
 }
