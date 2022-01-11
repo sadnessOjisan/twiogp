@@ -29,8 +29,9 @@ const Iid: VFC<Props> = (props) => {
           <div className={styles.imageWrapper}>
             <Image
               src={`/images/${props.detail.imageName}`}
-              width={400}
-              height={300}
+              alt={`${props.detail.imageName} の画像です`}
+              width={900}
+              height={600}
             />
           </div>
           <p className={styles.footnote}>
