@@ -26,7 +26,7 @@ const Index: VFC<Props> = (props) => {
         <div className={styles.cards}>
           {props.parsed.map((p) => (
             <Link href={`images/${p.urlPath}`} key={p.imageName}>
-              <div>
+              <div className={styles.link}>
                 <Image
                   src={`/images/${p.imageName}`}
                   width={400}

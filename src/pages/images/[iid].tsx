@@ -7,58 +7,71 @@ import { VFC } from "react";
 import YAML from "yaml";
 
 import { type ImageData, imageYamlSchema } from "../../schema/images";
+import styles from "./iid.module.scss";
 
-type Props =
-  | {
-      _tag: "s";
-      detail: ImageData;
-    }
-  | {
-      _tag: "f";
-      message: string;
-    };
+type Success = {
+  _tag: "s";
+  detail: ImageData;
+};
+
+type Fail = {
+  _tag: "f";
+  message: string;
+};
+type Props = Success | Fail;
 
 const Iid: VFC<Props> = (props) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       {props._tag === "s" ? (
         <div>
-          <Head>
-            <title>${props.detail.imageName}</title>
-            <meta
-              property="og:image"
-              content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${props.detail.imageName}`}
+          <Meta data={props} />
+          <div className={styles.imageWrapper}>
+            <Image
+              src={`/images/${props.detail.imageName}`}
+              width={400}
+              height={300}
             />
-            <meta
-              property="og:url"
-              content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${props.detail.imageName}`}
-            />
-            <meta
-              property="og:description"
-              content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
-            />
-
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta
-              name="twitter:description"
-              content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
-            />
-            <meta
-              name="twitter:image"
-              content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
-            />
-          </Head>
-          <Image
-            src={`/images/${props.detail.imageName}`}
-            width={400}
-            height={300}
-          />
-          編集は<a href="https://github.com/sadnessOjisan/twiogp">こちら</a>から
+          </div>
+          <p className={styles.footnote}>
+            編集は<a href="https://github.com/sadnessOjisan/twiogp">こちら</a>
+            から
+          </p>
         </div>
       ) : (
         <p>{props.message}</p>
       )}
     </div>
+  );
+};
+
+const Meta: VFC<{ data: Success }> = ({ data }) => {
+  return (
+    <Head>
+      <title>${data.detail.imageName}</title>
+      <meta
+        property="og:image"
+        content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${data.detail.imageName}`}
+      />
+      <meta
+        property="og:url"
+        content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${data.detail.imageName}`}
+      />
+      <meta
+        property="og:description"
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+      />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:description"
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+      />
+      <meta
+        name="twitter:image"
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+      />
+    </Head>
   );
 };
 
