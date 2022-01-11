@@ -1,0 +1,12 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  > * {
+    margin: 4px;
+  }
+}
+
+.link {
+  cursor: pointer;
+}

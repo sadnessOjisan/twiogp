@@ -7,6 +7,7 @@ import { VFC } from "react";
 import YAML from "yaml";
 
 import { type ImageYaml, imageYamlSchema } from "../schema/images";
+import styles from "./index.module.scss";
 
 type Props =
   | {
@@ -20,19 +21,25 @@ type Props =
 
 const Index: VFC<Props> = (props) => {
   return (
-    <p>
+    <div>
       {props._tag === "s" ? (
-        props.parsed.map((p) => (
-          <Link href={`images/${p.urlPath}`} key={p.imageName}>
-            <div>
-              <Image src={`/images/${p.imageName}`} width={400} height={300} />
-            </div>
-          </Link>
-        ))
+        <div className={styles.cards}>
+          {props.parsed.map((p) => (
+            <Link href={`images/${p.urlPath}`} key={p.imageName}>
+              <div className={styles.link}>
+                <Image
+                  src={`/images/${p.imageName}`}
+                  width={400}
+                  height={300}
+                />
+              </div>
+            </Link>
+          ))}
+        </div>
       ) : (
         <p>{props.message}</p>
       )}
-    </p>
+    </div>
   );
 };
 

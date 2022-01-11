@@ -1,54 +1,35 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# 🦜twiogp
 
-## 🚀 Quick start
+つい、OGP で語ってしまう
 
-1.  **Create a Gatsby site.**
+## 📖 How to use
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+画像ページを Twitter などに貼ると OGP として展開されます。
+ツイートの補足などにお使いください。
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+オススメは [知らんけど](https://twiogp.ojisan.dev/images/shirankedo) と [個人の感想です](https://twiogp.ojisan.dev/images/kojinnokannsodesu) です。
 
-2.  **Start developing.**
+![知らんけど](./public/images/shirankedo.png)
 
-    Navigate into your new site’s directory and start it up.
+## 🙏 Please contribute us
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+画像の追加・編集は自由に行えます。
 
-3.  **Open the code and start customizing!**
+### 追加方法
 
-    Your site is now running at http://localhost:8000!
+1. public/images に画像を追加
+2. 画像のメタデータを public/config.yaml に追加
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+することで画像を追加できます。
 
-4.  **Learn more**
+yaml の構造は、
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```yaml
+- name: 画像のキャプション名として表示
+  urlPath: その画像をOGPとして使えるページのURLパス
+  imageName: 追加した画像のファイル名。img タグで表示する時に使うものであり、内部的な値であるため、追加したファイル名と一致していれば何でも良い値
+```
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### レビューの方法
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+基本的にはどのような追加・編集でも approve します。そのため自分が追加した画像やメタデータが後発のレビューで修正される可能性はご留意ください。

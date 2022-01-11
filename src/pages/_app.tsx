@@ -1,13 +1,15 @@
+import "../styles/reset.css";
+import "../styles/normalize.css";
+
 import type { AppProps } from "next/app";
 
-import __ from "../styles/normalize.css";
-import _ from "../styles/reset.css";
+import { Layout } from "../components/layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${_.content} ${__.content}`}>
-      <Component {...pageProps} />;
-    </div>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 
