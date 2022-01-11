@@ -46,16 +46,18 @@ const Iid: VFC<Props> = (props) => {
 };
 
 const Meta: VFC<{ data: Success }> = ({ data }) => {
+  const origin =
+    process.env.NEXT_PUBLIC_VERCEL_URL || process.env.NEXT_PUBLIC_HOSTING_HOST;
   return (
     <Head>
       <title>${data.detail.imageName}</title>
       <meta
         property="og:image"
-        content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${data.detail.imageName}`}
+        content={`${origin}/images/${data.detail.imageName}`}
       />
       <meta
         property="og:url"
-        content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${data.detail.imageName}`}
+        content={`${origin}/images/${data.detail.imageName}`}
       />
       <meta
         property="og:description"
