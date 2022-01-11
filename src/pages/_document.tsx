@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 import { GA_TRACKING_ID } from "../util/ga";
 
@@ -9,22 +10,19 @@ export default class MyDocument extends Document {
         <Head>
           {GA_TRACKING_ID && (
             <>
-              <script
-                async
+              <Script
+                defer
                 src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                strategy="afterInteractive"
               />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-        `,
-                }}
-              />
+              <Script id="ga" defer strategy="afterInteractive">
+                {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}');
+          `}
+              </Script>
             </>
           )}
         </Head>
