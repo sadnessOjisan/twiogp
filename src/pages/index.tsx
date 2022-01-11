@@ -1,32 +1,32 @@
-import * as React from "react";
-import { graphql, Link, PageProps } from "gatsby";
-
-const IndexPage: React.VFC<PageProps<GatsbyTypes.AllConfigQuery>> = ({
-  data,
-}) => {
+import fs from "fs";
+import Link from "next/link";
+import YAML from "yaml";
+import Image from "next/image";
+import path from "path";
+const Index = ({ parsed }) => {
   return (
-    <main>
-      {data.allConfigYaml.edges.map((edge) => (
-        <Link key={edge.node.id} to={`/${edge.node.path}`}>
-          {edge.node.name}
+    <p>
+      r
+      {parsed.map((p) => (
+        <Link href={`images/${p.urlPath}`} key={p.imageName}>
+          <div>
+            <Image src={`/images/${p.imageName}`} width={400} height={300} />
+          </div>
         </Link>
       ))}
-    </main>
+    </p>
   );
 };
 
-export default IndexPage;
+export default Index;
 
-export const query = graphql`
-  query AllConfig {
-    allConfigYaml {
-      edges {
-        node {
-          id
-          path
-          name
-        }
-      }
-    }
-  }
-`;
+export async function getServerSideProps(context) {
+  const file = fs.readFileSync(
+    path.join(process.cwd(), "public/config.yaml"),
+    "utf8"
+  );
+  const parsed = YAML.parse(file);
+  return {
+    props: { parsed }, // will be passed to the page component as props
+  };
+}
