@@ -7,7 +7,7 @@
 画像ページを Twitter などに貼ると OGP として展開されます。
 ツイートの補足などにお使いください。
 
-オススメは [知らんけど](https://twiogp.ojisan.dev/images/shirankedo) と [個人の感想です](https://twiogp.ojisan.dev/images/kojinnokannsodesu) です。
+オススメは [知らんけど](https://twiogp.ojisan.dev/images/shirankedo) です。
 
 ![知らんけど](./public/images/shirankedo.png)
 
@@ -17,18 +17,20 @@
 
 ### 追加方法
 
-1. public/images に画像を追加
-2. 画像のメタデータを public/config.yaml に追加
+1. [public/images](https://github.com/sadnessOjisan/twiogp/tree/main/public/images) に画像を追加
+2. 画像のメタデータを [public/config.yaml](https://github.com/sadnessOjisan/twiogp/blob/main/public/config.yaml) に追加
 
 することで画像を追加できます。
 
 yaml の構造は、
 
 ```yaml
-- name: 画像のキャプション名として表示
+- name: 画像のキャプション名として表示。alt にも `${name}です` として設定されます。
   urlPath: その画像をOGPとして使えるページのURLパス
   imageName: 追加した画像のファイル名。img タグで表示する時に使うものであり、内部的な値であるため、追加したファイル名と一致していれば何でも良い値
 ```
+
+です。
 
 ### レビューの方法
 
