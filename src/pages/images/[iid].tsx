@@ -46,30 +46,33 @@ const Iid: VFC<Props> = (props) => {
 };
 
 const Meta: VFC<{ data: Success }> = ({ data }) => {
+  const origin = process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_HOSTING_HOST;
   return (
     <Head>
-      <title>${data.detail.imageName}</title>
+      <title>{data.detail.name} | twiogp</title>
       <meta
         property="og:image"
-        content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${data.detail.imageName}`}
+        content={`${origin}/images/${data.detail.imageName}`}
       />
+      <meta property="og:title" content={`${data.detail.name} | twiogp`} />
       <meta
         property="og:url"
-        content={`${process.env.NEXT_PUBLIC_HOSTING_HOST}/images/${data.detail.imageName}`}
+        content={`${origin}/images/${data.detail.urlPath}`}
       />
       <meta
         property="og:description"
-        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で自由に追加・編集が可能です。`}
       />
-
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:description"
-        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で自由に追加・編集が可能です。`}
       />
       <meta
         name="twitter:image"
-        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で追加・編集が可能です。`}
+        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で自由に追加・編集が可能です。`}
       />
     </Head>
   );
