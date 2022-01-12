@@ -73,7 +73,7 @@ const Meta: VFC<{ data: Success }> = ({ data }) => {
       />
       <meta
         name="twitter:image"
-        content={`twiogp は注釈として使えるOGP画像ホスティングサービスです。GitHub上で自由に追加・編集が可能です。`}
+        content={`${origin}/images/${data.detail.imageName}`}
       />
     </Head>
   );
