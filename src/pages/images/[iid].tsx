@@ -75,6 +75,7 @@ const Meta: VFC<{ data: Success }> = ({ data }) => {
         name="twitter:image"
         content={`${origin}/images/${data.detail.imageName}`}
       />
+      <meta name="twitter:image:alt" content={data.detail.name} />
     </Head>
   );
 };
